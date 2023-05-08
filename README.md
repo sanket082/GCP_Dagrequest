@@ -278,12 +278,10 @@ def process_data(**kwargs):
     client = bigquery.Client()
     now = datetime.now()
     table_id = "<PROJECT_ID>.task_creation.task_table"
-
     rows_to_insert = [
         {u"file_name": data['name'],u"timestamp":now.strftime("%m/%d/%Y, %H:%M:%S")},
        
-    ]
-
+]
     errors = client.insert_rows_json(table_id, rows_to_insert)  
     if errors == []:
         print("New rows have been added.")
