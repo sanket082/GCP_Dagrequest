@@ -1,4 +1,3 @@
-# GCP_Dagrequest
 DAG trigger with Airflow
 
 
@@ -278,10 +277,12 @@ def process_data(**kwargs):
     client = bigquery.Client()
     now = datetime.now()
     table_id = "<PROJECT_ID>.task_creation.task_table"
+
     rows_to_insert = [
         {u"file_name": data['name'],u"timestamp":now.strftime("%m/%d/%Y, %H:%M:%S")},
        
-]
+    ]
+
     errors = client.insert_rows_json(table_id, rows_to_insert)  
     if errors == []:
         print("New rows have been added.")
@@ -307,6 +308,8 @@ process_data_task = PythonOperator(
     provide_context=True,
     dag=dag,
 )
+
+
 
 ```
 
@@ -370,4 +373,4 @@ Step 11:  Open the table and click on edit schema. Add field file_name and times
 Results 
 
 Now when you upload a file to Test1 bucket it will trigger the cloud function which inturn will call the airflow DAG and add the name and the time of upload to the bigquery  table.  
-![image](https://user-images.githubusercontent.com/21987547/236858674-8db38e44-c9d0-452f-9578-b0b460b5d097.png)
+![image](https://user-images.githubusercontent.com/21987547/236922145-95865380-f64f-409e-a980-1c3a620b4006.png)
