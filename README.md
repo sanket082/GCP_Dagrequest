@@ -310,8 +310,6 @@ process_data_task = PythonOperator(
     dag=dag,
 )
 
-
-
 ```
 
   
