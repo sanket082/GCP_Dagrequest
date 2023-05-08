@@ -232,34 +232,7 @@ gcloud iam service-accounts keys create ~/$PROJECT-dag-trigger-key.json \
 # Export keys to projects key folder.
 
 export GOOGLE_APPLICATION_CREDENTIALS=~/$PROJECT-dag-trigger-key.json
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
 
 Step 8: Open DAGs folder of the composer environment and upload dag.py file there.
 
