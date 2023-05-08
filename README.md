@@ -346,4 +346,3 @@ Step 11:  Open the table and click on edit schema. Add field file_name and times
 Results 
 
 Now when you upload a file to Test1 bucket it will trigger the cloud function which inturn will call the airflow DAG and add the name and the time of upload to the bigquery  table.  
-![image](https://user-images.githubusercontent.com/21987547/236922145-95865380-f64f-409e-a980-1c3a620b4006.png)
